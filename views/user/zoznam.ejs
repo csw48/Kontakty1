@@ -1,0 +1,262 @@
+<% include ../partials/header %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Vyhľadávač zamestnancov</h1>
+        <h3>
+      Zoznam kontaktov a emailov
+    </h3>
+      </div>
+      <div class="col-md-6">
+
+        <h1>Vyhľadať podľa mena</h1>
+        <section class="list-wrap">
+          <label for="search-text">Vyhľadávač</label>
+          <input type="text" id="search-text" placeholder="Začnite písať meno" class="search-box">
+          <span class="list-count"></span>
+          <ul id="list">
+            <div class="row">
+              <% users.forEach(function(uzivatel){ %>
+                <div class="col-md-12">
+                  <li class="in">
+                    <a href="/uzivatel/<%= uzivatel._id %>">
+                      <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+                        </strong>
+                    </a>
+                  </li>
+                </div>
+                <% }); %>
+            </div>
+            <span class="empty-item">Žiadne výsledky</span>
+          </ul>
+        </section>
+      </div>
+          <div class="col-md-6">
+      <h1>Vyhľadať podľa oddelenia</h1>
+      <nav>
+  <div class="nav nav-tabs" id="myTab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-majsterky" role="tab" aria-controls="nav-home" aria-selected="true">Majsterky</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-kvalita" role="tab" aria-controls="nav-profile" aria-selected="false">Kvalita</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-manazment" role="tab" aria-controls="nav-contact" aria-selected="false">Manažment</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-personalne" role="tab" aria-controls="nav-personalne" aria-selected="false">Personálne</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-ekonom" role="tab" aria-controls="nav-ekonom" aria-selected="false">Ekonómky</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-logistika" role="tab" aria-controls="nav-logistika" aria-selected="false">Logistika</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-administrativa" role="tab" aria-controls="nav-administrativa" aria-selected="false">BOZP</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-it" role="tab" aria-controls="nav-it" aria-selected="false">IT</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-tisax" role="tab" aria-controls="nav-tisax" aria-selected="false">Tisax</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-etikety" role="tab" aria-controls="nav-etikety" aria-selected="false">Etikety</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pass2" role="tab" aria-controls="nav-pass2" aria-selected="false">Pass 2</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pass3" role="tab" aria-controls="nav-pass3" aria-selected="false">Pass 3</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-sklad" role="tab" aria-controls="nav-sklad" aria-selected="false">Sklad</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-meeting" role="tab" aria-controls="nav-meeting" aria-selected="false">Meetingovka</a>
+
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade active show" id="nav-majsterky" role="tabpanel" aria-labelledby="nav-home-tab">
+      <% users.forEach(function(uzivatel){ %>
+        <% if (uzivatel.pozicia == "Majsterka" ) { %>
+        <div class="col-md-12">
+          <li class="in">
+            <a href="/uzivatel/<%= uzivatel._id %>">
+              <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+                </strong>
+            </a>
+          </li>
+        </div>
+          <%  } %>
+        <% }); %>
+
+  </div>
+  <div class="tab-pane fade" id="nav-kvalita" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Kvalita" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+            <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-etikety" role="tabpanel" aria-labelledby="nav-etikety-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Etikety" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+            <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-logistika" role="tabpanel" aria-labelledby="nav-logistika-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Logistika" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+            <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-manazment" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Manažment" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-personalne" role="tabpanel" aria-labelledby="nav-personalne-tab">      <% users.forEach(function(uzivatel){ %>
+          <% if (uzivatel.pozicia == "Personálne" ) { %>
+          <div class="col-md-12">
+            <li class="in">
+              <a href="/uzivatel/<%= uzivatel._id %>">
+                <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+                  </strong>
+              </a>
+            </li>
+          </div>
+            <%  } %>
+          <% }); %></div>
+  <div class="tab-pane fade" id="nav-ekonom" role="tabpanel" aria-labelledby="nav-ekonom-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Ekonómka" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+            <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-administrativa" role="tabpanel" aria-labelledby="nav-administrativa-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "BOZP" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+            <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-it" role="tabpanel" aria-labelledby="nav-it-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "IT" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %></div>
+      <div class="tab-pane fade" id="nav-tisax" role="tabpanel" aria-labelledby="nav-tisax-tab">
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Tisax" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-meeting" role="tabpanel" aria-labelledby="nav-meeting-tab">
+
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.pozicia == "Meetingovka" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-pass2" role="tabpanel" aria-labelledby="nav-pass2-tab">
+
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.budova == "Pass 2" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+  <div class="tab-pane fade" id="nav-pass3" role="tabpanel" aria-labelledby="nav-pass3-tab">
+
+    <% users.forEach(function(uzivatel){ %>
+      <% if (uzivatel.budova == "Pass 3" ) { %>
+      <div class="col-md-12">
+        <li class="in">
+          <a href="/uzivatel/<%= uzivatel._id %>">
+          <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+              </strong>
+          </a>
+        </li>
+      </div>
+        <%  } %>
+      <% }); %>
+  </div>
+
+<div class="tab-pane fade" id="nav-sklad" role="tabpanel" aria-labelledby="nav-sklad-tab">
+
+  <% users.forEach(function(uzivatel){ %>
+    <% if (uzivatel.pozicia == "Sklad" ) { %>
+    <div class="col-md-12">
+      <li class="in">
+        <a href="/uzivatel/<%= uzivatel._id %>">
+        <%= uzivatel.titul %> <%= uzivatel.name %> - <b> <%= uzivatel.klapka %> </b>
+            </strong>
+        </a>
+      </li>
+    </div>
+      <%  } %>
+    <% }); %>
+</div>
+</div>
+</div>
+  </div>
+</div>
+  </div>
+<% include ../partials/footer %>
