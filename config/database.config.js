@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://149.102.132.193/:27017/Tele'
+    url: 'mongodb://mongodb:27017/Tele' // "mongodb" je názov služby
 }
