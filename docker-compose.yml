@@ -6,19 +6,21 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3001:3001" # Alebo port, ktorý tvoja aplikácia používa
+      - "3001:3001"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/Tele
     command: npm start
 
   mongodb:
     image: mongo:6
     container_name: mongodb
     ports:
-      - "27017:27017" # Port MongoDB
+      - "27017:27017"
     volumes:
       - mongodb_data:/data/db
 
