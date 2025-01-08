@@ -13,7 +13,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      - MONGO_URL=mongodb://mongodb:27017/moja_databaza # URL MongoDB
+      - MONGO_URL=mongodb://mongodb:27017/Tele # URL MongoDB
     command: npm start
 
   mongodb:
